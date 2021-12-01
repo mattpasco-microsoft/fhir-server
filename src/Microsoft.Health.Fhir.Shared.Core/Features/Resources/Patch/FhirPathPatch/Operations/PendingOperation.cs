@@ -72,7 +72,7 @@ namespace FhirPathPatch.Operations
             object value = component.Part.FirstOrDefault(x => x.Name == "value")?.Value;
             if (value is null)
             {
-                value = component.Part.FirstOrDefault(x => x.Name == "value")?.Part[0];
+                value = component.Part.Where(x => x.Name == "value").ToList();
             }
 
             int? index = int.TryParse(component.Part.FirstOrDefault(x => x.Name == "index")?.Value.ToString(), out int itmp) ? itmp : null;
