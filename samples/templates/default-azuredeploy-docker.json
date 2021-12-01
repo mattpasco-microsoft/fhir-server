@@ -171,6 +171,13 @@
                 "description": "Version of the FHIR specification to deploy."
             }
         },
+        "registryName": {
+            "type": "string",
+            "defaultValue": "healthplatformregistry.azurecr.io",
+            "metadata": {
+                "description": "Registry containing the docker image to deploy."
+            }
+        },
         "imageTag": {
             "type": "string",
             "defaultValue": "release",
@@ -256,7 +263,7 @@
         "combinedFhirServerConfigProperties": "[union(variables('staticFhirServerConfigProperties'), parameters('additionalFhirServerConfigProperties'))]",
         "computedSqlServerReference": "[concat('Microsoft.Sql/servers/', variables('serviceName'))]",
         "storageAccountName": "[concat(substring(replace(variables('serviceName'), '-', ''), 0, min(11, length(replace(variables('serviceName'), '-', '')))), uniquestring(resourceGroup().id, variables('serviceName')))]",
-        "registryName": "healthplatformregistry.azurecr.io",
+        "registryName": "parameters('registryName')",
         "azureContainerRegistryUri":"[if(variables('isMAG'), '.azurecr.us', '.azurecr.io')]",
         "azureContainerRegistryName": "[concat(substring(replace(variables('serviceName'), '-', ''), 0, min(11, length(replace(variables('serviceName'), '-', '')))), uniquestring(resourceGroup().id, variables('serviceName')))]"
     },
