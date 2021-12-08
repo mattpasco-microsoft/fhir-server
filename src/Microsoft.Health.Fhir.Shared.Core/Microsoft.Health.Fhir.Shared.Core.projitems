@@ -49,6 +49,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\ConditionalPatchResourceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\ConditionalFhirPatchResourceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\FhirPatchResourceHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\FhirPathPatch\ResourceVisitor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\PatchResourceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\JsonPatchService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Features\Resources\Patch\FhirParameterPatchService.cs" />

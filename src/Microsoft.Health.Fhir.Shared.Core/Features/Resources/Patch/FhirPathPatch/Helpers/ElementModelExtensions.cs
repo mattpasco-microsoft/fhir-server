@@ -39,8 +39,11 @@ namespace FhirPathPatch.Helpers
         }
 
         // Converts a DataType to an ElementNode
-        internal static ElementNode ToElementNode(this DataType data) =>
-            ElementNode.FromElement(TypedSerialization.ToTypedElement(data));
+        internal static ElementNode ToElementNode(this DataType data)
+        {
+            var rtn = ElementNode.FromElement(TypedSerialization.ToTypedElement(data));
+            return rtn;
+        }
 
         // #TODO - insulate this from ParameterComponent
         internal static ElementNode ToElementNode(this object data)
@@ -61,5 +64,10 @@ namespace FhirPathPatch.Helpers
 
             throw new ArgumentException("Input data must be of type DataType or ParameterComponent.");
         }
+
+        /*internal static Element ToElement(this ParameterComponent param, Type targetType)
+        {
+            var provider = new PocoStructureDefinitionSummaryProvider();
+        }*/
     }
 }

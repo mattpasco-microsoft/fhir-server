@@ -33,8 +33,10 @@ namespace FhirPathPatch.Operations
         /// <returns>Patched FHIR Resource as POCO.</returns>
         public override Resource Execute(PendingOperation operation)
         {
+            base.Execute(operation);
+
             var patchPath = ResourceElement.Find(operation.Path);
-            patchPath.Add(PocoProvider, operation.Value.ToElementNode(), operation.Name);
+            patchPath.Add(PocoProvider, ValueElement, operation.Name);
 
             return ResourceElement.ToPoco<Resource>();
         }

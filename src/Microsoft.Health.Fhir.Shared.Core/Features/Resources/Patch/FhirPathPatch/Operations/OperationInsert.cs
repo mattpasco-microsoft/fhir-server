@@ -35,6 +35,8 @@ namespace FhirPathPatch.Operations
         /// <returns>Patched FHIR Resource as POCO.</returns>
         public override Resource Execute(PendingOperation operation)
         {
+            base.Execute(operation);
+
             var targetElement = ResourceElement.Find(operation.Path);
             var targetParent = targetElement.Parent;
             var name = targetElement.Name;
@@ -56,7 +58,7 @@ namespace FhirPathPatch.Operations
                 // Add the new item at the correct index
                 if (operation.Index == child.index)
                 {
-                    targetParent.Add(PocoProvider, operation.Value.ToElementNode(), name);
+                    targetParent.Add(PocoProvider, ValueElement, name);
                 }
 
                 // Remove the old element from the list so the new order is used

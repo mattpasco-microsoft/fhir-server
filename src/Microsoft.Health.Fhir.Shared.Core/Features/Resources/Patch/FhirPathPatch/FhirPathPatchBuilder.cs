@@ -20,12 +20,16 @@ namespace FhirPathPatch
 
         private List<PendingOperation> operations;
 
+        // private IModelInfoProvider modelInfoProvider;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FhirPathPatchBuilder"/> class.
         /// </summary>
+        /// <param name="modelInfoProvider">Model info provider used for FHIR type inference.</param>
         /// <param name="resource">FHIR Resource.</param>
-        public FhirPathPatchBuilder(Resource resource)
+        public FhirPathPatchBuilder(/*IModelInfoProvider modelInfoProvider, */Resource resource)
         {
+            // this.modelInfoProvider = modelInfoProvider;
             this.resource = resource;
             operations = new List<PendingOperation>();
         }
@@ -33,10 +37,11 @@ namespace FhirPathPatch
         /// <summary>
         /// Initializes a new instance of the <see cref="FhirPathPatchBuilder"/> class with Patch Parameters.
         /// </summary>
+        /// <param name="modelInfoProvider">Model info provider used for FHIR type inference.</param>
         /// <param name="resource">FHIR Resource.</param>
         /// <param name="parameters">Patch Parameters.</param>
-        public FhirPathPatchBuilder(Resource resource, Parameters parameters)
-        : this(resource)
+        public FhirPathPatchBuilder(/*IModelInfoProvider modelInfoProvider, */Resource resource, Parameters parameters)
+        : this(/*modelInfoProvider, */resource)
         {
             Build(parameters);
         }
