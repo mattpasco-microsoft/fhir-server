@@ -62,7 +62,11 @@ namespace FhirPathPatch.Helpers
                 return node;
             }
 
+<<<<<<< Updated upstream
             throw new ArgumentException("Input data must be of type DataType or ParameterComponent.");
+=======
+            throw new InvalidOperationException("Value part of patch request must either have a value or child parts.");
+>>>>>>> Stashed changes
         }
 
         /*internal static Element ToElement(this ParameterComponent param, Type targetType)

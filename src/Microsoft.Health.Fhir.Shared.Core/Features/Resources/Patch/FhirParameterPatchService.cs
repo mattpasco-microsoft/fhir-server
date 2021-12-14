@@ -80,7 +80,7 @@ namespace Microsoft.Health.Fhir.Core.Features.Resources.Patch
                 var resource = node.ToTypedElement(_modelInfoProvider.StructureDefinitionSummaryProvider);
                 resourcePoco = resource.ToPoco<Resource>();
             }
-            catch (Exception e)
+            catch (InvalidOperationException e)
             {
                 throw new RequestNotValidException(string.Format(Core.Resources.PatchResourceError, e.Message));
             }

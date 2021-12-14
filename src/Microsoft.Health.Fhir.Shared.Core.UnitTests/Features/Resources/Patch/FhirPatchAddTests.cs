@@ -98,7 +98,7 @@ namespace Microsoft.Health.Fhir.Shared.Core.UnitTests.Features.Resources.Patch
         /// https://github.com/FHIR/fhir-test-cases/blob/752b01313ecbc1e13a942e1b3e25c96b3f7f3449/r5/patch/fhir-path-tests.xml#L450
         /// </summary>
         [Fact]
-        public void AddAnonymousType()
+        public void GivenAFhirPatchRequest_WhenAddingAnAnonymousVaue_ThenValueShouldExistOnResource()
         {
             // Arrange
             var patchParam = new Parameters().AddAddPatchParameter("Patient", "contact", null);
